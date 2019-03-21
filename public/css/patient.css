@@ -1,0 +1,146 @@
+#content {
+    margin: 10px auto;
+    text-align: center;
+    width: auto;
+}
+
+/* list of patients */
+.patient-section {
+    margin-top:10px;
+}
+.patient-section h2 {
+    text-align: center;
+}
+
+.patient-card-container {
+    background: #ddd;
+    margin: 2.5em 3em;
+    overflow: scroll;
+    max-height: 70vh;
+}
+
+ol {
+    width: 90%;
+    height: 100%;
+    padding: 2.4em 0;
+    counter-reset: li;
+    list-style: none;
+    font-size: 15px;
+    font-family: inherit;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .5);
+    display: flex;
+    margin: .5em 0;
+    color: #000;
+    border-radius: .3em;
+    transition: all .3s ease-out;
+}
+
+ol .patient-position {
+    text-align: center;
+}
+
+.collapse, .collapsing  {
+    display: none;
+}
+.collapse.in{
+    display: block;
+}
+
+.rounded-list .panel-body {
+    border: .3em solid #fff;
+    padding: 30px;
+    background: lightseagreen;
+    border-radius: .3em;
+    transition: all .3s ease-out;
+}
+
+.rounded-list a {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding: 2.4em;
+    margin: .5em 0;
+    color: #000;
+    text-decoration: none;
+    border-radius: .3em;
+    transition: all .3s ease-out;
+    background: lightseagreen;
+    border: .3em solid #fff;
+}
+
+.rounded-list a:hover {
+    background: #fff;
+}
+
+.rounded-list a:hover:before {
+    transform: rotate(360deg);
+}
+
+.rounded-list a:before {
+    content: counter(li);
+    counter-increment: li;
+    position: absolute;
+    left: -1.3em;
+    top: 50%;
+    margin-top: -1.3em;
+    background: #87ceeb;
+    height: 2em;
+    width: 2em;
+    line-height: 2em;
+    border: .3em solid #fff;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 2em;
+    transition: all .3s ease-out;
+}
+
+.center {
+    display: table;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 6em;
+    text-align: center;
+    margin-top: 0;
+}
+
+
+@media only screen and (max-width: 1200px) {
+
+    /* .rounded-list {
+         position: relative;
+         top: 20px;
+     } */
+}
+
+@media only screen and (max-width: 790px) {
+
+    ol .patient-position {
+        margin-left: -50px;
+    }
+
+    .patient-card-container {
+        margin: 2.5em 1em;
+    }
+}
+
+@media only screen and (max-width: 580px) {
+
+    .fa {
+        font-size: 1.5em !important;
+    }
+
+    ol {
+        padding: 15px;
+    }
+
+    ol .patient-position {
+        margin-left: -20px;
+    }
+
+    .patient-card-container {
+        margin: 2.5em 1em;
+    }
+
+}

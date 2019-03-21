@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.0/anime.min.js"></script>
+        <script src="https://use.fontawesome.com/ff6a17ab77.js"></script>
+        <title>Document</title>
+        <style>
+            @import url("https://fonts.googleapis.com/css?family=Oswald");
+
+            #title {
+                font-family: Oswald;
+                padding: 20px;
+                background-color: gray;
+            }
+
+            #title h1 {
+                text-align: center;
+                margin: 0;
+            }
+
+            body,
+            html {
+                margin: 0;
+                width: 100%;
+                height: 100%;
+                background-color: gray;
+            }
+
+            .list {
+                font-family: Oswald;
+                background-color: #ffcc10;
+                margin: 0;
+            }
+
+            .list .header {
+                padding: 20px;
+                font-size: 30px;
+                background-color: #fff333;
+                box-shadow: 0px 2px #ddaa10;
+                cursor: pointer;
+                position: relative;
+                transition: .2s all;
+            }
+
+            .list .header:hover {
+                background-color: #ddd333;
+            }
+
+            .list img {
+                width: 200px;
+                height: 200px;
+                position: relative;
+                margin: 0;
+                padding: 0;
+            }
+
+            .list ul {
+                padding: 40px;
+                margin: 0;
+            }
+
+            .list li {
+                list-style: none;
+                width: 200px;
+                height: 240px;
+                margin-right: 20px;
+                margin-bottom: 20px;
+                display: inline-block;
+                background-color: #fff333;
+                transition: .1s all;
+                position: relative;
+            }
+
+            .list li:hover {
+                box-shadow: 0px 2px #ddaa10;
+                bottom: 2px;
+                right: 0px;
+            }
+
+            .list p {
+                text-align: center;
+                width: 200px;
+                margin: 0;
+                padding-top: 6px;
+            }
+
+            .header i {
+                position: absolute;
+                right: 25px;
+            }
+
+            footer {
+                background-color: #000;
+                color: white;
+                font-family: Oswald;
+            }
+
+        </style>
+    </head>
+
+    <body>
+
+        <div id="title">
+            <h1>Collapsible Lists With Images</h1>
+        </div>
+        <!--
+                Apples
+              !-->
+        <div class="list">
+            <div class="header">
+                Patient 1
+                <i class="fa fa-arrow-down" aria-hidden="true"></i>
+            </div>
+            <ul>
+                <li>
+                    <p>Sample</p>
+                </li>
+                <li>
+                    <p>Sample</p>
+                </li>
+                <li>
+                    <p>Sample</p>
+                </li>
+            </ul>
+        </div>
+        <!--
+                Pears
+              !-->
+        <div class="list open">
+            <div class="header">
+                Patient 2
+                <i class="fa fa-arrow-down" aria-hidden="true"></i>
+            </div>
+            <ul>
+                <li>
+                    <p>Williams</p>
+                </li>
+                <li>
+                    <p>European</p>
+                </li>
+                <li>
+                    <p>Bosc</p>
+                </li>
+            </ul>
+        </div>
+        <!--
+                Bananas
+              !-->
+        <div class="list open">
+            <div class="header">
+                Patient 3
+                <i class="fa fa-arrow-down" aria-hidden="true"></i>
+            </div>
+            <ul>
+                <li>
+                    <p>Sample</p>
+                </li>
+                <li>
+                    <p>Sample</p>
+                </li>
+                <li>
+                    <p>Sample</p>
+                </li>
+            </ul>
+        </div>
+        <script>
+            $(document).ready(function () {
+                //The Click the function 
+                $(".list .header").click(function () {
+                    var arrow = $(this).find("i");
+                    var list = $(this).parent();
+                    var body = list.find("ul");
+                    if (list.hasClass("open")) {
+                        //Close
+                        list.removeClass("open");
+                        arrow.css({
+                            'transform': 'rotate(-90deg)'
+                        });
+                        body.hide();
+                    } else {
+                        //Open
+                        list.addClass("open");
+                        arrow.css({
+                            'transform': 'rotate(0deg)'
+                        });
+                        body.show();
+                    }
+                });
+
+                //Initial Setting
+                $(".list").each(function (index) {
+                    if ($(this).hasClass("open")) {
+                        $(this).find("ul").hide();
+                        var arrow = $(this).find("i");
+                        arrow.css({
+                            'transform': 'rotate(-90deg)'
+                        });
+                    } else {
+                        $(this).find("ul").hide();
+                        var arrow = $(this).find("i");
+                        arrow.css({
+                            'transform': 'rotate(-90deg)'
+                        });
+                    }
+                });
+            });
+
+        </script>
+
+
+    </body>
+
+</html>
